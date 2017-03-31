@@ -83,6 +83,6 @@ try:
  GPIO.cleanup()
 
 except KeyboardInterrupt:
- print("Game END!")
+ print("Game END!!")
  GPIO.cleanup()
 
