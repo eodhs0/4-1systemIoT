@@ -38,4 +38,4 @@ while True:
   f = urllib.request.urlopen("https://api.thingspeak.com/update?api_key=AXL020SBKJ5WHJKR&field1="+ str(t))
   print("complete to insert thingSpeak")
   print("\n")
-  time.sleep(5) #timescale 10sec
+  time.sleep(10) #timescale 10sec

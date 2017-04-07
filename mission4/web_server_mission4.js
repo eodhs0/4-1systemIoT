@@ -6,15 +6,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 var fs = require("fs");
 var df = require('dateformat');
 
-mysql = require('mysql');
-var connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'sensor',
-    password: 'qkr9303362',
-    database: 'data'
-})
-connection.connect();
-
 
 function insert_sensor(user, type, value, user2, serial, ip)
 {
@@ -67,21 +58,6 @@ app.get('/logone', function(req, res) {
   r = req.query;
   fs.appendFile("Data.txt", "temperature: "+r.temperature+"\n", function(err){});
   
-  // mysql save
-  temp={};
-  temp.seq=1;
-  temp.type='T'
-  temp.device='102';
-  temp.unit='0';
-  temp.ip='10.42.0.239';
-  temp.value=r.temperature;
-
-  var tempquery = connection.query('insert into sensors set?', temp, function(err, rows, cols) {
-    if (err) throw err;
-    console.log("insert done in Mysql database");
-    console.log("\n");
-  });
-
   // nodejs server save
   // console.log("GET %j", r);
 
