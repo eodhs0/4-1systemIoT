@@ -1,6 +1,7 @@
 import os
 import glob
 import time
+import requests, json
 import urllib.request
 
 os.system('modprobe w1-gpio')
@@ -29,7 +30,9 @@ def read_temp():
 
 while True:
   t = read_temp()
-  f = urllib.request.urlopen('https://api.thingspeak.com/update?api_key=AXL020SBKJ5WHJKR&field2='+ str(t))
+  req = urllib.request.Request('http://10.42.0.239:8080/logone?temperature='+str(t))
+  data = urllib.request.urlopen(req).read()
+  f = urllib.request.urlopen('https://api.thingspeak.com/update?api_key=AXL020SBKJ5WHJKR&field1='+ str(t))
   html = int(f.read())
   print(t)
-  time.sleep(1)
+  time.sleep(10) #timescale 10sec
