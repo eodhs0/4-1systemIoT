@@ -15,6 +15,7 @@
 	<br>
 	<br>
 	<h1>System mission6</h1>
+	<a href="https://youtu.be/on5CUd0o4YA">mission6 link. click here!</a>
 	<h3>Description</h3>
 	<p>This is to draw a LineChart by using google chart</p>
 </body>
