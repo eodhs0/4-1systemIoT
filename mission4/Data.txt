@@ -1,2 +1,5 @@
 temperature: 22.062
 temperature: 22.0
+temperature: 25.687
+temperature: 26.562
+temperature: 27.562

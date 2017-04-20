@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['line']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+	
+      var data = new google.visualization.DataTable();
+      //data.addColumn('date', 'Day');
+      //data.addColumn('number', 'Temperature');
+	<%HEADER%>
+      data.addRows([
+	<%DATA%>	
+      ]);
+
+      var options = {
+        chart: {
+          title: 'System class mission6',
+          subtitle: '20123362 Park Dae-Hyun'
+        },
+	hAxis: {
+	  format: 'yyyy/MM/dd hh:mm:ss'
+	},
+        width: 900,
+        height: 500
+      };
+
+      var chart = new google.charts.Line(document.getElementById('linechart_material'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+      }
+    </script>
+  </head>
+  <body>
+    <div id="linechart_material" style="width: 900px; height: 500px"></div>
+  </body>
+</html>
+
